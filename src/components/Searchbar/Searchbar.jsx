@@ -15,6 +15,7 @@ export default class Searchbar extends Component {
     event.preventDefault();
     if (this.state.value.trim() === '') {
       Notify.info('Please enter a search query');
+      return;
     }
     this.props.onSubmit(this.state.value);
     this.setState({ value: '' });

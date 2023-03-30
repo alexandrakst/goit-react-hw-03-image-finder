@@ -12,7 +12,7 @@ export class Button extends Component {
     loading: false,
   };
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps, _) {
     if (prevProps.searchInput !== this.props.searchInput) {
       this.setState({ page: 1 });
     }

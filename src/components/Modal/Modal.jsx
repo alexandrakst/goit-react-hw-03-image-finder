@@ -33,7 +33,7 @@ export default class Modal extends Component {
 }
 
 Modal.propTypes = {
-  handleEsc: PropTypes.func.isRequired,
-  handleBackdropClick: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired,
+  handleEsc: PropTypes.func,
+  handleBackdropClick: PropTypes.func,
+  onClick: PropTypes.func,
 };
