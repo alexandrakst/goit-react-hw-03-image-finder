@@ -41,7 +41,7 @@ export class Button extends Component {
     if (this.state.loading) {
       return <Loader />;
     } else if (this.state.page * 12 >= this.props.total) {
-      return;
+      return null;
     } else
       return (
         <button className={css.button} onClick={this.onLoadMore}>
