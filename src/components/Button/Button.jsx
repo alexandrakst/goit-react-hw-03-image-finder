@@ -40,6 +40,8 @@ export class Button extends Component {
   render() {
     if (this.state.loading) {
       return <Loader />;
+    } else if (this.state.page * 12 >= this.props.total) {
+      return;
     } else
       return (
         <button className={css.button} onClick={this.onLoadMore}>

@@ -12,6 +12,7 @@ export default class ImageGallery extends Component {
   state = {
     images: null,
     loading: false,
+    totalHits: 0,
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -24,7 +25,9 @@ export default class ImageGallery extends Component {
         }&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
       )
         .then(res => res.json())
-        .then(images => this.setState({ images: images.hits }))
+        .then(images =>
+          this.setState({ images: images.hits, totalHits: images.totalHits })
+        )
         .finally(() => this.setState({ loading: false }));
     }
   }
@@ -51,6 +54,7 @@ export default class ImageGallery extends Component {
         </ul>
         {images && (
           <Button
+            total={this.state.totalHits}
             searchInput={this.props.searchInput}
             onLoadMore={this.onLoadMore}
           />
